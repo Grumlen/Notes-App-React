@@ -34,4 +34,4 @@ function editNote(id) {
   return { type: 'EDIT_NOTE', note };
 }
 
-export { deleteNote, addNote, saveNote, editNote};
+export { deleteNote, addNote, saveNote, editNote };

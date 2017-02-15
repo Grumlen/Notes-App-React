@@ -6,9 +6,9 @@ import {createStore} from 'redux';
 function componentWithMockStore(Component, state, props) {
   let store = createStore(reducer, state);
   return (
-    <Component store={store}/>
-    //   <Component {...props}/>
-    // </Provider>
+    <Provider store={store}>
+      <Component {...props}/>
+    </Provider>
   );
 }
 

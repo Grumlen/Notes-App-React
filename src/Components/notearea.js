@@ -18,33 +18,34 @@ const mapStateToNoteListProps = (state) => {
   return {notes};
 };
 
-const NoteArea = (props) => {
-console.log(" hello from here  ----->",props.notes)
-  return <div>
-    {
-      props.notes.map((n,index) => (
-        n.edit ?
-          <NoteEdit
-            note={n}
-            label={'Save'}
-            key={index}
-            onAEClick={props.onSaveClick}
-          /> :
-          <NoteDisplay
-            note={n}
-            key={index}
-            onEditClick={props.onEditClick}
-            onDeleteClick={props.onDeleteClick}
-          />
-      ))
-    }
-    <NoteEdit
-      note={{id:uuid.v4(), title:'', contents:''}}
-      label={'Add'}
-      onAEClick={props.onAddClick}
-    />
+const NoteArea = (props) => (
+  <div className="ui vertical stripe container" id='noteArea'>
+    <div className="ui two column stackable grid">
+      <NoteEdit
+        note={{id:uuid.v4(), title:'', contents:''}}
+        label={'Add'}
+        onAEClick={props.onAddClick}
+      />
+      {
+        props.notes.map((n,index) => (
+          n.edit ?
+            <NoteEdit
+              note={n}
+              label={'Save'}
+              key={index}
+              onAEClick={props.onSaveClick}
+            /> :
+            <NoteDisplay
+              note={n}
+              key={index}
+              onEditClick={props.onEditClick}
+              onDeleteClick={props.onDeleteClick}
+            />
+        ))
+      }
+    </div>
   </div>
-};
+);
 
 
 const NoteAreaDisplay = connect(
