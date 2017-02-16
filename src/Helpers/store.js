@@ -6,7 +6,9 @@ function retrieveAll() {
   var notes = [];
   if (localStorage.length>0) {
     for (let i=1; i<localStorage.length;i++) {
-      notes.push(retrieve(localStorage.key(i)));
+      if(localStorage.key(i)!=='myChart' && localStorage.key(i)!=='myNotes') {
+        notes.push(retrieve(localStorage.key(i)));
+      }
     }
   }
   return notes;
