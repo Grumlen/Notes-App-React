@@ -15,6 +15,7 @@ const mapDispatchToNoteEditProps = (dispatch) => (
 
 const mapStateToNoteListProps = (state) => {
   const notes = state;
+  console.log(notes);
   return {notes};
 };
 

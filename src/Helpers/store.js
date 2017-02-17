@@ -6,7 +6,8 @@ function retrieveAll() {
   var notes = [];
   if (localStorage.length>0) {
     for (let i=1; i<localStorage.length;i++) {
-      if(localStorage.key(i)!=='myChart' && localStorage.key(i)!=='myNotes') {
+      if(localStorage.key(i).slice(0,7)==='NoteApp') {
+        console.log(localStorage.key(i));
         notes.push(retrieve(localStorage.key(i)));
       }
     }
@@ -15,11 +16,11 @@ function retrieveAll() {
 }
 
 function remove(id) {
-  localStorage.removeItem(id);
+  localStorage.removeItem(`NoteApp${id}`);
 }
 
 function save(note) {
-  localStorage.setItem(note.id, JSON.stringify(note));
+  localStorage.setItem(`NoteApp${note.id}`, JSON.stringify(note));
 }
 
 export { save, retrieve, retrieveAll, remove };

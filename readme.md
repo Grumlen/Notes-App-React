@@ -3,6 +3,8 @@
 Notes-React Application was built using Node, React, Redux, React-Redux, Uuid, Enzyme, and Semantic UI, and allows a user to create, edit, and delete notes.
 
 Each note is a separate entity that is in either a display or editing state. The first note window is always the "Add Note" window, which will generate new notes when the user clicks "Add". In the display state a note may be toggled to the edit state or deleted. In the editing state a note may be modified and saved or canceled, which returns the note to its previous form.
+
+The notes are stored in localStorage using a unique id for each note prefixed with 'NoteApp' to prevent contamination from other uses of localStorage.
 ***
 ##How to Run the App
 1. Download the repository.
